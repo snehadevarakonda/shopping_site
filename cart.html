@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ShopEasy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html" style="color: white; text-decoration: none;">ShopEasy</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#shop" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#categories" class="nav-link">Categories</a>
+                </li>
+            </ul>
+            <div class="nav-icons">
+                <a href="index.html" class="nav-icon">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <a href="cart.html" class="nav-icon active">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Page -->
+    <div class="cart-page">
+        <div class="cart-container">
+            <h1 class="cart-header" style="font-size: 2.5rem; margin-bottom: 2rem; text-align: center; color: #2f3542;">Shopping Cart</h1>
+            
+            <!-- Cart Items -->
+            <div id="cart-items-container">
+                <!-- Cart items will be dynamically loaded here -->
+            </div>
+
+            <!-- Cart Summary -->
+            <div style="max-width: 500px; margin: 2rem auto;" id="cart-summary-container">
+                <!-- Cart summary will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShopEasy</h3>
+                    <p>Your one-stop destination for quality products at amazing prices.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#shop">Shop</a></li>
+                        <li><a href="index.html#categories">Categories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                    <p><i class="fas fa-envelope"></i> info@shopeasy.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart-script.js"></script>
+</body>
+</html>
+

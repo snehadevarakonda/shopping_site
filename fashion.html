@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion - ShopEasy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .category-page {
+            padding: 2rem 0 4rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html" style="color: white; text-decoration: none;">ShopEasy</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#shop" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#categories" class="nav-link">Categories</a>
+                </li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="nav-icon" id="search-icon">
+                    <i class="fas fa-search"></i>
+                </a>
+                <a href="cart.html" class="nav-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Header -->
+    <div class="category-header">
+        <div class="container">
+            <h1 class="category-title">Fashion</h1>
+            <div class="category-breadcrumb">
+                <a href="index.html" style="color: #FFA4A4; text-decoration: none;">Home</a> > Fashion
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Page -->
+    <div class="category-page">
+        <div class="container">
+            <!-- Search and Filter Section -->
+            <div class="filters-section">
+                <div class="search-bar" style="margin-bottom: 1rem;">
+                    <input type="text" id="search-input" placeholder="Search products..." style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div class="filter-group">
+                        <label>Sort By</label>
+                        <select id="sort-select" class="filter-select">
+                            <option value="name">Name A-Z</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Size</label>
+                        <select id="size-select" class="filter-select">
+                            <option value="all">All Sizes</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Price Range</label>
+                        <select id="price-select" class="filter-select">
+                            <option value="all">All Prices</option>
+                            <option value="0-100">$0 - $100</option>
+                            <option value="100-200">$100 - $200</option>
+                            <option value="200+">$200+</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="clear-filters-btn" onclick="clearFilters()">Clear Filters</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShopEasy</h3>
+                    <p>Your one-stop destination for quality products at amazing prices.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#shop">Shop</a></li>
+                        <li><a href="index.html#categories">Categories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                    <p><i class="fas fa-envelope"></i> info@shopeasy.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="category-script.js"></script>
+    <script>
+        // Load fashion products
+        loadCategoryProducts('fashion', ['Leather Jacket', 'Designer Dress', 'Running Shoes', 'Sunglasses']);
+    </script>
+</body>
+</html>
+

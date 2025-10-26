@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - ShopEasy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .checkout-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .checkout-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2f3542;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #FFA4A4;
+}
+
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+.payment-option:hover {
+    border-color: #FFA4A4;
+}
+
+        .payment-option input[type="radio"] {
+            margin-right: 1rem;
+        }
+
+        .order-summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary {
+                position: static;
+            }
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html" style="color: white; text-decoration: none;">ShopEasy</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#shop" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#categories" class="nav-link">Categories</a>
+                </li>
+            </ul>
+            <div class="nav-icons">
+                <a href="index.html" class="nav-icon">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <a href="cart.html" class="nav-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Page -->
+    <div class="checkout-page" style="padding: 2rem 0 4rem; min-height: 80vh;">
+        <div class="checkout-container" id="checkout-container">
+            <!-- Checkout Form -->
+            <div class="checkout-form">
+                <h2 style="margin-bottom: 2rem; color: #2f3542;">Shipping Details</h2>
+                
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Street Address *</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City *</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pincode">Pincode *</label>
+                        <input type="text" id="pincode" name="pincode" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State *</label>
+                        <input type="text" id="state" name="state" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Payment Method *</label>
+                        <div class="payment-methods">
+                            <div class="payment-option">
+                                <input type="radio" id="cod" name="payment" value="cod" checked>
+                                <label for="cod" style="margin: 0; font-weight: normal; cursor: pointer;">
+                                    Cash on Delivery (COD)
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="card" name="payment" value="card">
+                                <label for="card" style="margin: 0; font-weight: normal; cursor: pointer;">
+                                    Credit/Debit Card
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="upi" name="payment" value="upi">
+                                <label for="upi" style="margin: 0; font-weight: normal; cursor: pointer;">
+                                    UPI Payment
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="netbanking" name="payment" value="netbanking">
+                                <label for="netbanking" style="margin: 0; font-weight: normal; cursor: pointer;">
+                                    Net Banking
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1rem;">
+                        Place Order
+                    </button>
+                </form>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h2 style="margin-bottom: 1.5rem; color: #2f3542;">Order Summary</h2>
+                <div id="order-items">
+                    <!-- Order items will be loaded here -->
+                </div>
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #eee;">
+                    <div class="summary-item">
+                        <span><strong>Subtotal</strong></span>
+                        <span id="checkout-subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span><strong>Shipping</strong></span>
+                        <span id="checkout-shipping">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span><strong>Tax</strong></span>
+                        <span id="checkout-tax">$0.00</span>
+                    </div>
+                    <div class="summary-item" style="font-size: 1.3rem; font-weight: 700; color: #FFA4A4;">
+                        <span><strong>Total</strong></span>
+                        <span id="checkout-total">$0.00</span>
+                    </div>
+                </div>
+                <a href="cart.html" style="display: inline-block; margin-top: 1rem; color: #FFA4A4; text-decoration: none;">
+                    <i class="fas fa-arrow-left"></i> Back to Cart
+                </a>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message" id="success-message">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 style="color: #4CAF50; margin-bottom: 1rem;">Order Placed Successfully!</h2>
+            <p style="color: #666; margin-bottom: 2rem;">
+                Thank you for your purchase. Your order will be delivered soon.
+            </p>
+            <p style="color: #666; margin-bottom: 2rem;">
+                Order ID: <strong id="order-id"></strong>
+            </p>
+            <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShopEasy</h3>
+                    <p>Your one-stop destination for quality products at amazing prices.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#shop">Shop</a></li>
+                        <li><a href="index.html#categories">Categories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                    <p><i class="fas fa-envelope"></i> info@shopeasy.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="checkout-script.js"></script>
+</body>
+</html>
+
